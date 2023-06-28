@@ -1,0 +1,65 @@
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+#navbarNav {
+    justify-content: center;
+}
+
+.navbar-collapse {
+    background-color: #ED9BBC;
+}
+
+.nav-link {
+    font-size: 1.3em;
+}
+
+h1{
+    font-size: 3em;
+    text-align: center;
+    padding: 30px 0px;
+}
+
+.box-cards {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 30px;
+}
+
+.card-body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.card-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #ED9BBC;
+    border: #ED9BBC;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #EE4823;
+    --bs-btn-border-color: #EE4823;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #EE4823;
+    --bs-btn-hover-border-color: #EE4823;
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #EE4823;
+    --bs-btn-active-border-color: #EE4823;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #EE4823;
+    --bs-btn-disabled-border-color: #EE4823;
+}

@@ -1,28 +1,107 @@
-var nombre;
+// Declaro variables
+var nombreProducto;
+var precio;
 var cantidad;
-var descuento;
+var total;
 
-alert("Bienvenido a la calculadora de descuentos");
-nombre = prompt("Ingrese su nombre:");
+const productos = ["taza flores rosas", "taza flores azules", "taza lovely", "taza frutilla"];
 
-// Solicitar cantidad
-do {
-    cantidad = parseInt(prompt("Ingrese la cantidad:"));
-} while (cantidad <= 0) {
-    cantidad = parseInt(prompt("Cantidad inválida. Ingrese otro número"));
+alert("Bienvenido a su carrito de compra");
+
+let carrito = [];
+
+let seleccion = prompt("Hola! ¿Desea comprar algún producto? (si/no)");
+
+while (seleccion !== "si" && seleccion !== "no") {
+    alert("Por favor ingresa 'si' o 'no'");
+    seleccion = prompt("Hola! ¿Desea comprar algún producto? (si/no)");
+}
+// Pido que ingrese producto
+if (seleccion === "si") {
+    nombreProducto = prompt("Ingrese el nombre del producto");
+
+    while (seleccion !== "no") {
+        var producto = nombreProducto;
+        var precio = 0;
+
+        if (
+            producto === "taza flores rosas" ||
+            producto === "taza flores azules" ||
+            producto === "porta cepillo de dientes" ||
+            producto === "taza lovely" ||
+            producto === "taza frutillas"
+        ) {
+            // Asigno a productos
+            switch (producto) {
+                case "taza flores rosas":
+                    precio = 1050;
+                    break;
+
+                case "taza flores azules":
+                    precio = 1050;
+                    break;
+
+                case "porta cepillo de dientes":
+                    precio = 1000;
+                    break;
+
+                case "taza lovely":
+                    precio = 1200;
+                    break;
+
+                case "taza frutillas":
+                    precio = 1300;
+                    break;
+            }
+
+            // Agrego productos al carrito
+            let unidades = parseInt(prompt("¿Cuántas unidades desea agregar?"));
+            carrito.push({ producto: producto, precio: precio, unidades: unidades });
+        }
+
+        seleccion = prompt("¿Desea agregar otro producto? (si/no)");
+        while (seleccion !== "si" && seleccion !== "no") {
+            alert("Por favor ingresa 'si' o 'no'");
+            seleccion = prompt("¿Desea agregar otro producto? (si/no)");
+        }
+        if (seleccion === "si") {
+            nombreProducto = prompt("Ingrese el nombre del producto");
+        }
+    }
 }
 
-// Solicitar descuento
-do {
-    descuento = parseInt(prompt("Ingrese el descuento (%):"));
-} while (descuento <= 0 || descuento > cantidad) {
-    descuento = parseInt(prompt("Descuento invalido. Ingrese otro número"));
+// Calculo total de compra
+
+if (carrito.length > 0) {
+    let totalCompra = 0;
+
+    for (let i = 0; i < carrito.length; i++) {
+        let item = carrito[i];
+        let total = item.precio * item.unidades;
+        totalCompra += total;
+    }
+
+    // Muestro total de compra
+    alert("Resumen de la compra:\n");
+
+    for (let i = 0; i < carrito.length; i++) {
+        let item = carrito[i];
+        let total = item.precio * item.unidades;
+        alert(
+            "Producto: " +
+            item.producto +
+            "\nPrecio unitario: $" +
+            item.precio +
+            "\nUnidades: " +
+            item.unidades +
+            "\nTotal: $" +
+            total
+        );
+    }
+
+    alert("Total de la compra: $" + totalCompra);
+} else {
+    alert("No se han agregado productos al carrito.");
 }
 
-// Calcular el descuento
-var precioTotal = cantidad;
-var descuentoAplicado = (precioTotal * descuento) / 100;
-var precioConDescuento = precioTotal - descuentoAplicado;
-
-// Mostrar el resultado
-alert("Nombre: " + nombre + "\n" + "Cantidad: " + cantidad + "\n" + "Descuento: " + descuento + "%" + "\n" + "Precio con descuento: " + precioConDescuento);
+alert("¡Gracias por su compra!");
