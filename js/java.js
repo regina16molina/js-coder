@@ -440,3 +440,14 @@ cards.forEach((card) => {
 });
 
 // Correciones
+fetch('productos.json')
+  .then(response => response.json())
+  .then(data => {
+    // 'data' contiene la lista de productos del archivo JSON
+    data.forEach(producto => {
+      console.log(`ID: ${producto.id}, Nombre: ${producto.nombre}, Precio: $${producto.precio}`);
+    });
+  })
+  .catch(error => {
+    console.error('Error al cargar los productos:', error);
+  });
