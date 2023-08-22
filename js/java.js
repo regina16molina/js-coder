@@ -440,6 +440,20 @@ cards.forEach((card) => {
 });
 
 
+// Correciones
+// Cargar productos desde JSON
+async function cargarProductosDesdeJSON() {
+    try {
+        const response = await fetch('productos.json'); // Cambia la ruta si es necesario
+        const productos = await response.json();
+        cargarProductos(productos);
+    } catch (error) {
+        console.error('Error al cargar productos desde JSON:', error);
+    }
+}
+  
+  // Llamada para cargar productos desde JSON
+  cargarProductosDesdeJSON();
 
 
 
