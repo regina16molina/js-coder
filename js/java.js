@@ -439,35 +439,4 @@ cards.forEach((card) => {
     card.classList.add('card-shadow');
 });
 
-
 // Correciones
-// Cargar productos desde JSON
-async function cargarProductosDesdeJSON() {
-    try {
-      const response = await fetch('productos.json'); // Cambia la ruta si es necesario
-      const productosData = await response.json();
-  
-      const productos = productosData.map(productoData => {
-        return new Producto(
-          productoData.id,
-          productoData.titulo,
-          productoData.imagen,
-          productoData.categoria,
-          productoData.precio
-        );
-      });
-  
-      productos.forEach(producto => {
-        // Resto del código para crear y agregar productos
-        // (puedes reutilizar el código que tenías para cargar productos)
-      });
-    } catch (error) {
-      console.error('Error al cargar productos desde JSON:', error);
-    }
-  }
-  
-  // Llamada para cargar productos desde JSON
-  cargarProductosDesdeJSON();
-
-
-
